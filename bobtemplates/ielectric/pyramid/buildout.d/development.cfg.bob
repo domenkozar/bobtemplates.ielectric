@@ -1,0 +1,25 @@
+[buildout]
+extends =
+   base.cfg
+eggs +=
+   {{{package.name}}} [test,development]
+parts +=
+    sphinxbuilder
+    development-ini
+
+extensions += mr.developer
+sources = sources
+auto-checkout = *
+
+[sources]
+# niteoweb.fabfile = git git@github.com:niteoweb/niteoweb.fabfile.git
+
+[sphinxbuilder]
+recipe = collective.recipe.sphinxbuilder
+source = ${buildout:directory}/docs/
+interpreter = ${buildout:directory}/bin/python
+
+[development-ini]
+recipe = collective.recipe.template
+input = ${buildout:directory}/etc/development.ini.in
+output = ${buildout:directory}/development.ini

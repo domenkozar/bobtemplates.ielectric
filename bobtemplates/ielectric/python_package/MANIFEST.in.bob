@@ -1,0 +1,2 @@
+graft {{{package.name}}}
+include *.cfg *.rst *.in LICENSE

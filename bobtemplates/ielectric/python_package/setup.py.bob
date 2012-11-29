@@ -1,0 +1,47 @@
+# -*- coding: utf-8 -*-
+
+import os
+
+from setuptools import setup
+from setuptools import find_packages
+
+
+def read(*rnames):
+    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+
+
+setup(
+    name='{{{package.name}}}',
+    version='{{{package.version}}}.dev0',
+    description='{{{package.description}}}',
+    long_description=read('README.rst') +
+                     read('HISTORY.rst') +
+                     read('LICENSE'),
+    classifiers=[
+        "Programming Language :: Python",
+    ],
+    author='{{{author.name}}}',
+    author_email='{{{author.email}}}',
+    url='{{{url}}}',
+    license='BSD',
+    packages=find_packages(),
+    install_requires=[
+        'setuptools',
+    ],
+    extras_require={
+        'test': [
+            'nose',
+            'nose-selecttests',
+            'coverage',
+            'unittest2',
+            'flake8',
+        ],
+        'development': [
+            'zest.releaser',
+        ],
+    },
+    entry_points="""
+    """,
+    include_package_data=True,
+    zip_safe=False,
+)

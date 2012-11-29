@@ -1,0 +1,28 @@
+server {
+    listen 80;
+    server_name ${project}.com www.${project}.com;
+    access_log /var/log/nginx/${project}.access.log;
+
+    # Redirect from www to non-www
+    if (\$host ~* "^www\.(.*)") {
+        set \$new_host \$1;
+        rewrite  ^/(.*)\$  http://\$new_host/\$1;
+    }
+
+    location / {
+        proxy_set_header        Host \$host;
+        proxy_set_header        X-Real-IP \$remote_addr;
+        proxy_set_header        X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header        X-Forwarded-Proto \$scheme;
+
+        client_max_body_size       50m;
+        client_body_buffer_size    128k;
+        proxy_connect_timeout      60s;
+        proxy_send_timeout         90s;
+        proxy_read_timeout         90s;
+        proxy_buffering            off;
+        proxy_temp_file_write_size 64k;
+        proxy_pass                 http://127.0.0.1:\${ports:gunicorn};
+        proxy_redirect             off;
+    }
+}

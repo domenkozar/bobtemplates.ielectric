@@ -1,0 +1,32 @@
+[egg_info]
+tag_build = 
+tag_date = 0
+
+[nosetests]
+match=^test
+nocapture=1
+cover-package={{{package.dottedname}}}
+with-coverage=1
+cover-erase=1
+
+[compile_catalog]
+directory = src/{{{package.dottedname}}}/locale
+domain = {{{package.dottedname}}}
+statistics = true
+
+[extract_messages]
+add_comments = TRANSLATORS:
+output_file = src/{{{package.dottedname}}}/locale/{{{package.dottedname}}}.pot
+width = 80
+mapping_file = etc/babel_extractors.ini
+
+[init_catalog]
+domain = {{{package.dottedname}}}
+input_file = src/{{{package.dottedname}}}/locale/{{{package.dottedname}}}.pot
+output_dir = src/{{{package.dottedname}}}/locale
+
+[update_catalog]
+domain = {{{package.dottedname}}}
+input_file = src/{{{package.dottedname}}}/locale/{{{package.dottedname}}}.pot
+output_dir = src/{{{package.dottedname}}}/locale
+previous = true

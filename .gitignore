@@ -1,0 +1,7 @@
+*.egg-info
+*.mo
+*.pyc
+/bin/
+/var/
+/local/
+/lib/

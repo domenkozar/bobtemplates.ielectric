@@ -1,0 +1,88 @@
+[app:{{package.dottedname}}]
+use = egg:{{{package.dottedname}}}
+
+pyramid.reload_templates = false
+pyramid.debug_authorization = false
+pyramid.debug_notfound = false
+pyramid.debug_routematch = false
+pyramid.default_locale_name = en
+pyramid.includes = 
+    pyramid_tm
+default_locale_name = en
+
+sqlalchemy.url = ${config:sqlalchemy_url}
+
+cache.memory.backend = dogpile.cache.memory
+
+# alembic settings
+script_location = %(here)s/src/{{{package.dottedname}}}/alembic
+
+[pipeline:main]
+pipeline =
+    raven
+    {{{package.dottedname}}}
+
+[filter:raven]
+use = egg:raven#raven
+dsn = ${config:sentry_dsn}
+include_paths = {{{package.dottedname}}}
+
+[server:main]
+use = egg:gunicorn#main
+host = 127.0.0.1
+port = ${config:gunicorn_port}
+
+#---------- Logging Configuration ----------
+[loggers]
+keys = root, {{{package.dottedname}}}, sqlalchemy, alembic, sentry
+
+[handlers]
+keys = console, sentry
+
+[formatters]
+keys = generic
+
+[logger_root]
+level = WARN
+handlers = console, sentry
+
+[logger_alembic]
+level = INFO
+handlers =
+qualname = alembic
+
+[logger_sentry]
+level = WARN
+handlers = console
+qualname = sentry.errors
+propagate = 0
+
+[logger_{{{package.dottedname}}}]
+level = WARN
+handlers =
+qualname = {{{package.dottedname}}}
+
+[logger_sqlalchemy]
+level = WARN
+handlers =
+qualname = sqlalchemy.engine
+# "level = INFO" logs SQL queries.
+# "level = DEBUG" logs SQL queries and results.
+# "level = WARN" logs neither.  (Recommended for production systems.)
+
+[handler_console]
+class = StreamHandler
+args = (sys.stderr,)
+level = NOTSET
+formatter = generic
+
+[handler_sentry]
+class = raven.handlers.logging.SentryHandler
+args = ('${config:sentry_dsn}',)
+level = WARNING
+formatter = generic
+
+[formatter_generic]
+format = %(asctime)s %(levelname)-5.5s [%(name)s][%(threadName)s] %(message)s
+
+# End logging configuration

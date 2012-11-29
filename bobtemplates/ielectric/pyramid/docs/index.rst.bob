@@ -1,0 +1,29 @@
+$projectname
+============
+
+:Author: {{{author.name}}} <{{{author.email}}}>
+:URL: {{{package.url}}}
+:Docs: {{{docs.url}}}
+:Source: {{{package.repository}}}
+:Licence: {{{license}}}
+:Framework: Pyramid
+:version: |release|
+:Generated: |today|
+
+.. sidebar:: Features
+
+   - First feature
+
+.. topic:: Overview
+
+   Description.
+
+.. toctree::
+   :maxdepth: 3
+
+   intro.rst
+   api.rst
+   glossary.rst
+
+.. include:: ../../HISTORY.rst
+.. include:: ../../LICENCE

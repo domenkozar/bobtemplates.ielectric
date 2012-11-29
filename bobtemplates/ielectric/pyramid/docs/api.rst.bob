@@ -1,0 +1,9 @@
+===
+API
+===
+
+{{{package.dottedname}}} - main package
+-------------------------
+
+.. automodule:: {{{package.dottedname}}}
+    :members:

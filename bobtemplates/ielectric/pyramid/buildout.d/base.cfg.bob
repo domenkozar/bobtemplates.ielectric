@@ -1,0 +1,30 @@
+[buildout]
+extends =
+    versions.cfg
+parts =
+    scripts
+extensions =
+    buildout-versions
+    mr.developer
+versions = versions
+buildout_versions_file = buildout.d/versions.cfg
+include-site-packages = false
+socket-timeout = 3
+unzip = true
+prefer-final = true
+develop = .
+allow-hosts = 
+    *.python.org
+eggs =
+    {{{package.name}}}
+
+[scripts]
+recipe = z3c.recipe.scripts
+dependent-scripts = true
+eggs =
+    ${buildout:eggs}
+interpreter = python
+
+[config]
+project = {{{package.dottedname}}}
+projectname = {{{package.name}}}
