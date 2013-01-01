@@ -32,3 +32,4 @@ class BaseFunctionalTests(unittest.TestCase):
         from . import main
         app = main({})
         self.testapp = TestApp(app)
+        # TODO: SQL functional testing

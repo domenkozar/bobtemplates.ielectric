@@ -1,4 +1,4 @@
-[app:{{package.dottedname}}]
+[app:{{{package.dottedname}}}]
 use = egg:{{{package.dottedname}}}
 
 pyramid.reload_templates = false

@@ -27,6 +27,8 @@ pyramid
 python_package
     Replaces paster's `basic_template` with more modern ideas :-)
 
+    - Python 3 ready
+
 
 TODO
 ====

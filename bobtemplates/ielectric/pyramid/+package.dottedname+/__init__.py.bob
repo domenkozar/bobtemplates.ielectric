@@ -20,7 +20,7 @@ def main(global_config, **settings):
     config.include('.site')
     config.scan()
 
-    config.add_translation_dirs('${project}:locale/')
+    config.add_translation_dirs('{{{package.dottedname}}}:locale/')
 
     # setup cookie session
     cookie_session_secret = ''.join('%02x' % ord(x) for x in os.urandom(16))

@@ -5,7 +5,7 @@ $projectname
 :URL: {{{package.url}}}
 :Docs: {{{docs.url}}}
 :Source: {{{package.repository}}}
-:Licence: {{{license}}}
+:Licence: BSD
 :Framework: Pyramid
 :version: |release|
 :Generated: |today|
