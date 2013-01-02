@@ -26,4 +26,4 @@ RUNNING TESTS
 =============
 
 ::
-    $ nosetests
+    $ make test
