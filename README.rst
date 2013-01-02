@@ -21,20 +21,25 @@ pyramid
     - Travis-CI integration
     - Jinja2 as default templating engine
     - Babel for internalization and localization
-    - pyramid_mailer for sending emails
+    - pyramid_marrowmailer for sending emails
     - Raven (Sentry) integration
     - dogpile.cache for caching API
 python_package
     Replaces paster's `basic_template` with more modern ideas :-)
 
     - Python 3 ready
+    - Uses nose to run tests
+    - Travis-CI integration
 
 
 TODO
 ====
 
-- add bpython
-- Pyramid template
+- add django template based on https://github.com/kiberpipa/intranet
+- add plone template based on https://github.com/niteoweb/niteoweb.skel.plone
+
+pyramid
+    - add bpython
     - pyramid_layout
     - alembic:
         - write tests
@@ -45,5 +50,5 @@ TODO
     - fabric with staging/production deploy scripts
     - setup a way to detect locales/languages http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/i18n.html
     - local command to add new app for pyramid project
-- add django template based on https://github.com/kiberpipa/intranet
-- add plone template based on https://github.com/niteoweb/niteoweb.skel.plone
+python_package
+    - Nothing
