@@ -9,6 +9,11 @@ cover-package={{{package.dottedname}}}
 with-coverage=1
 cover-erase=1
 
+[flake8]
+ignore = E123,E127
+# E123: closnig bracket must match indent of starting bracket
+# E127 continuation line over-indented for visual indent
+
 [compile_catalog]
 directory = src/{{{package.dottedname}}}/locale
 domain = {{{package.dottedname}}}
