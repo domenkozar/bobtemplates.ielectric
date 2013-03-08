@@ -38,6 +38,7 @@ setup(
         ],
         'development': [
             'zest.releaser',
+            'check-manifest',
         ],
     },
     entry_points="""
