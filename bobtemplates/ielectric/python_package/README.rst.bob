@@ -19,8 +19,7 @@ DEVELOP
     $ cd {{{package.name}}}
     $ virtualenv .
     $ source bin/activate
-    $ python setup.py develop
-    $ easy_install {{{package.name}}}[test]
+    $ python setup.py dev
 
 RUNNING TESTS
 =============
