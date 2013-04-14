@@ -24,7 +24,7 @@ class BaseIntegrationTest(BaseUnitTest):
             self.config.include(app)
 
 
-class BaseFunctionalTests(unittest.TestCase):
+class BaseFunctionalTest(unittest.TestCase):
     mock = mock
 
     def setUp(self):

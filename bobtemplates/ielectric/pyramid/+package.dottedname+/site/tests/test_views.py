@@ -1,4 +1,4 @@
-from ...testing import FunctionalTest, BaseUnitTest
+from ...testing import BaseFunctionalTest, BaseUnitTest
 
 
 class ViewsTests(BaseFunctionalTest):
