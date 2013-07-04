@@ -1,9 +1,16 @@
+.PHONY: nosetests test flake8
+
+all: bin/python test
 test: nosetests flake8
+
+bin/python:
+	@virtualenv .
+	@bin/python setup.py dev
 
 nosetests:
 	@echo "==== Running nosetests ===="
-	@nosetests
+	@bin/nosetests
 
 flake8:
 	@echo "==== Running Flake8 ===="
-	@flake8 {{{package.dottedname}}} *.py
+	@bin/flake8 {{{package.dottedname}}} *.py
