@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_namep project.com www.project.com;
+    server_name project.com www.project.com;
     access_log /var/log/nginx/project.access.log;
 
     # Redirect from www to non-www
